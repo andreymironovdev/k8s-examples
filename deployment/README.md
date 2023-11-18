@@ -30,6 +30,12 @@ kubectl rollout undo deployment my-deployment
 kubectl rollout undo deployment my-deployment --to-revision=1
 ```
 
+**View deployment spec fields:**
+
+```bash
+kubectl explain deployment.spec
+```
+
 **Delete deployment:**
 
 ```bash
