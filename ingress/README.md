@@ -22,6 +22,13 @@ kubectl apply -f ./configmap.yaml
 kubectl apply -f ./deployment.yaml
 kubectl apply -f ./service.yaml
 kubectl apply -f ./ingress.yaml
+# check ingress internal nginx config
+kubectl exec -it -n ingress-nginx ingress-nginx-controller-6cc5ccb977-txz6c -- /bin/bash
+cat /etc/nginx/nginx.conf
+# ...
+# server {
+#               server_name hello-world.info ;
+# ...
 # check the ingress without modifying /etc/hosts
 curl --resolve "hello-world.info:80:$( minikube ip )" -i http://hello-world.info
 # check the ingress with modifying /etc/hosts
