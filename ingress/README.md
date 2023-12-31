@@ -2,10 +2,8 @@
 cd ingress
 ```
 
-**Configure minikube on Mac M1 with qemu and socket_vmnet instead of docker to prevent issues with ingress:**
+**Start ingress controller:**
 ```bash
-minikube delete
-minikube start --driver qemu --network socket_vmnet
 minikube addons enable ingress
 # wait for ingress controller pod to have Running status
 kubectl get pods -n ingress-nginx
