@@ -47,9 +47,3 @@ curl -X GET <POD_IP>:9100/metrics
 #go_gc_duration_seconds{quantile="0.25"} 0
 #...
 ```
-
-Every node can be **tainted** to disable scheduling for pods on it:
-```yaml
-
-```
-And every pod can be 
