@@ -1,2 +1,2 @@
-FROM alpine:3.15
-RUN apk update && apk add bash && apk add curl
+FROM alpine:3.19.0
+RUN apk update --no-check-certificate && apk add --no-check-certificate bash curl
