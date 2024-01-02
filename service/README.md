@@ -71,6 +71,8 @@ curl <SERVICE_CLUSTER_IP>
 No cluster IP is allocated, no load-balancing and no proxying is specified. If selector is specified in service manifest,
 then DNS A or AAAA record is added for each pod backed by service.
 
+Headless service is useful for stateful sets, where we have ordered pods with non-random names.
+
 **Service DNS name resolves to all pods IP addresses from within the pod:**
 ```bash
 kubectl apply -f service-headless.yaml
