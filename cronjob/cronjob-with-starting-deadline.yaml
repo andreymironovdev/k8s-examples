@@ -1,0 +1,26 @@
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cronjob-with-starting-deadline
+spec:
+  failedJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: 3
+  concurrencyPolicy: Forbid # Allow, Replace
+  schedule: "*/1 * * * *"
+  startingDeadlineSeconds: 5
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      activeDeadlineSeconds: 100
+      template:
+        spec:
+          containers:
+            - name: cronjob
+              image: busybox
+              args:
+                - /bin/sh
+                - -c
+                - date; echo 'Hello World!'; sleep 1m 10s;
+          restartPolicy: Never
+...
