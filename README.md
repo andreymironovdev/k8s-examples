@@ -53,7 +53,7 @@ source ~/.zshrc
 ```bash
 # install and start socket_vmnet
 brew install socket_vmnet
-sudo ${HOMEBREW_PREFIX}/opt/socket_vmnet/bin/socket_vmnet --vmnet-gateway=192.168.105.1 ${HOMEBREW_PREFIX}/var/run/socket_vmnet
+HOMEBREW=$(which brew) && sudo ${HOMEBREW} services start socket_vmnet
 #restart minikue cluster
 minikube delete
 minikube start --driver qemu --network socket_vmnet
